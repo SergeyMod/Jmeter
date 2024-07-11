@@ -5,6 +5,8 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_____CONFIG_____" enabled="false"/>
@@ -53,7 +55,7 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="____Тест____" enabled="false"/>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TG">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TG" enabled="true">
         <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
@@ -296,7 +298,7 @@
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="AddUsers_2" enabled="false"/>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC" enabled="true"/>
         <hashTree>
           <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC">
             <collectionProp name="ModuleController.node_path">
@@ -361,7 +363,7 @@
             </RegexExtractor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/admin/auth/user/add/">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/admin/auth/user/add/" enabled="true">
             <stringProp name="HTTPSampler.domain">${host}</stringProp>
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -463,7 +465,7 @@
               <stringProp name="RegexExtractor.match_number">0</stringProp>
             </RegexExtractor>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -742,7 +744,7 @@ vars.put(&quot;password2&quot;, &quot;${__RandomString(8,1234567890abcdefghiklmn
       <hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC" enabled="true"/>
         <hashTree>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_1_2" enabled="true">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_1_2">
             <collectionProp name="ModuleController.node_path">
               <stringProp name="764597751">Test Plan</stringProp>
               <stringProp name="764597751">Test Plan</stringProp>
@@ -1445,7 +1447,7 @@ vars.put(&quot;password2&quot;, &quot;${__RandomString(8,1234567890abcdefghiklmn
             </collectionProp>
           </ModuleController>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/tickets/submit/">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/tickets/submit/" enabled="true">
             <stringProp name="HTTPSampler.domain">${host}</stringProp>
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1508,7 +1510,7 @@ vars.put(&quot;password2&quot;, &quot;${__RandomString(8,1234567890abcdefghiklmn
               <stringProp name="RegexExtractor.match_number">0</stringProp>
             </RegexExtractor>
             <hashTree/>
-            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="assigned_to&lt;&lt;&lt;">
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="assigned_to&lt;&lt;&lt;" enabled="true">
               <stringProp name="RegexExtractor.useHeaders">false</stringProp>
               <stringProp name="RegexExtractor.refname">assigned_to</stringProp>
               <stringProp name="RegexExtractor.regex">&lt;option value=\&quot;(.+?)\&quot;&gt;${username2}</stringProp>
@@ -1519,7 +1521,7 @@ vars.put(&quot;password2&quot;, &quot;${__RandomString(8,1234567890abcdefghiklmn
             </RegexExtractor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/tickets/submit/">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/tickets/submit/" enabled="true">
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
             <stringProp name="HTTPSampler.domain">${host}</stringProp>
             <stringProp name="HTTPSampler.port">${port}</stringProp>
@@ -1649,7 +1651,7 @@ vars.put(&quot;password2&quot;, &quot;${__RandomString(8,1234567890abcdefghiklmn
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -2875,9 +2877,9 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Фильтрация_5" enabled="false"/>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC" enabled="true"/>
         <hashTree>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login" enabled="false">
             <collectionProp name="ModuleController.node_path">
               <stringProp name="764597751">Test Plan</stringProp>
               <stringProp name="764597751">Test Plan</stringProp>
@@ -4174,13 +4176,13 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
             <stringProp name="IfController.condition">&quot;1&quot; == &quot;${__Random(1,10,)}&quot;</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
             <boolProp name="IfController.useExpression">false</boolProp>
           </IfController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/save_query/">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/save_query/" enabled="true">
               <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
@@ -4924,7 +4926,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/datatables_ticket_list/">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/datatables_ticket_list/" enabled="true">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -5503,7 +5505,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
       <hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC" enabled="true"/>
         <hashTree>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login" enabled="true">
             <collectionProp name="ModuleController.node_path">
               <stringProp name="764597751">Test Plan</stringProp>
               <stringProp name="764597751">Test Plan</stringProp>
@@ -6139,7 +6141,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Открытие задачи_6" enabled="false"/>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC" enabled="true"/>
         <hashTree>
           <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_open_tickets">
             <collectionProp name="ModuleController.node_path">
@@ -6220,7 +6222,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
             <boolProp name="IfController.useExpression">false</boolProp>
           </IfController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/tickets/${index}/">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/tickets/${index}/" enabled="true">
               <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
@@ -6279,7 +6281,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
       <hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC" enabled="true"/>
         <hashTree>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_open_tickets">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_open_tickets" enabled="true">
             <collectionProp name="ModuleController.node_path">
               <stringProp name="764597751">Test Plan</stringProp>
               <stringProp name="764597751">Test Plan</stringProp>
@@ -6402,7 +6404,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
             </RegexExtractor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/tickets/${index}/update/">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/tickets/${index}/update/" enabled="true">
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
             <stringProp name="HTTPSampler.domain">${host}</stringProp>
             <stringProp name="HTTPSampler.port">${port}</stringProp>
@@ -7378,7 +7380,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Выход из системы_10" enabled="false"/>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC" enabled="true"/>
         <hashTree>
           <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login" enabled="false">
             <collectionProp name="ModuleController.node_path">
@@ -7388,7 +7390,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
             </collectionProp>
           </ModuleController>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/logout/">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/logout/" enabled="true">
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
             <stringProp name="HTTPSampler.domain">${host}</stringProp>
             <stringProp name="HTTPSampler.port">${port}</stringProp>
@@ -7432,7 +7434,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="-594097121">login/?next=/&quot; id=&quot;userDropdown&quot; role=&quot;button&quot;</stringProp>
               </collectionProp>
@@ -7447,9 +7449,9 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Комплексный сценарий_11" enabled="false"/>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC" enabled="true"/>
         <hashTree>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login" enabled="true">
             <collectionProp name="ModuleController.node_path">
               <stringProp name="764597751">Test Plan</stringProp>
               <stringProp name="764597751">Test Plan</stringProp>
@@ -7457,13 +7459,13 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
             </collectionProp>
           </ModuleController>
           <hashTree/>
-          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
             <stringProp name="IfController.condition">&quot;1&quot; == &quot;${__Random(1,2,)}&quot;</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
             <boolProp name="IfController.useExpression">false</boolProp>
           </IfController>
           <hashTree>
-            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_Пагинация">
+            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_Пагинация" enabled="true">
               <collectionProp name="ModuleController.node_path">
                 <stringProp name="764597751">Test Plan</stringProp>
                 <stringProp name="764597751">Test Plan</stringProp>
@@ -7472,7 +7474,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
             </ModuleController>
             <hashTree/>
           </hashTree>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_Создать тикет">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_Создать тикет" enabled="true">
             <collectionProp name="ModuleController.node_path">
               <stringProp name="764597751">Test Plan</stringProp>
               <stringProp name="764597751">Test Plan</stringProp>
@@ -7481,7 +7483,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
             </collectionProp>
           </ModuleController>
           <hashTree/>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_Удаление задачи">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_Удаление задачи" enabled="true">
             <collectionProp name="ModuleController.node_path">
               <stringProp name="764597751">Test Plan</stringProp>
               <stringProp name="764597751">Test Plan</stringProp>
@@ -7489,7 +7491,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
             </collectionProp>
           </ModuleController>
           <hashTree/>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_Выход из системы">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_Выход из системы" enabled="true">
             <collectionProp name="ModuleController.node_path">
               <stringProp name="764597751">Test Plan</stringProp>
               <stringProp name="764597751">Test Plan</stringProp>
@@ -7576,7 +7578,7 @@ vars.put(&quot;title&quot;, &quot;${__RandomString(10, 1234567890abcdefghiklmnop
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder">
+      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder" enabled="true">
         <stringProp name="ProxyControlGui.port">8881</stringProp>
         <collectionProp name="ProxyControlGui.exclude_list"/>
         <collectionProp name="ProxyControlGui.include_list"/>
