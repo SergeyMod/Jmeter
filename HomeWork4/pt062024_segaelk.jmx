@@ -5,11 +5,13 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_____CONFIG_____" enabled="false"/>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
@@ -60,11 +62,11 @@
       <hashTree/>
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="jp@gc - STG_add_bay_logout">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">100</stringProp>
+        <stringProp name="ThreadGroup.num_threads">500</stringProp>
         <stringProp name="Threads initial delay">0</stringProp>
-        <stringProp name="Start users count">30</stringProp>
+        <stringProp name="Start users count">20</stringProp>
         <stringProp name="Start users count burst">50</stringProp>
-        <stringProp name="Start users period">30</stringProp>
+        <stringProp name="Start users period">20</stringProp>
         <stringProp name="Stop users count">5</stringProp>
         <stringProp name="Stop users period">1</stringProp>
         <stringProp name="flighttime">300</stringProp>
@@ -75,12 +77,12 @@
         </elementProp>
       </kg.apc.jmeter.threads.SteppingThreadGroup>
       <hashTree>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_add_bay_logout">
           <collectionProp name="ModuleController.node_path">
             <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="-834178755">____Сценарии____</stringProp>
-            <stringProp name="-1591803190">Simple Controller</stringProp>
+            <stringProp name="1941995828">SC_add_or_login_bay_logout</stringProp>
           </collectionProp>
         </ModuleController>
         <hashTree/>
@@ -89,7 +91,8 @@
       <hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_add_user" enabled="true"/>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_register_new_user" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_register_new_user">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -257,13 +260,28 @@
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
                 <stringProp name="scriptLanguage">groovy</stringProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="cacheKey">true</stringProp>
-                <stringProp name="script">vars.put(&quot;username&quot;, &quot;${__RandomString(10,abcdefghijklmnopqrstuvwxyz,)}&quot;)
-vars.put(&quot;password&quot;, &quot;${__RandomString(10,abcdefghijklmnopqrstuvwxyz,)}&quot;)</stringProp>
+                <stringProp name="script">
+buff = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;,&quot;g&quot;,&quot;h&quot;,&quot;i&quot;,&quot;j&quot;,&quot;k&quot;,&quot;l&quot;,&quot;m&quot;,&quot;n&quot;,&quot;o&quot;,&quot;p&quot;,&quot;q&quot;,&quot;r&quot;,&quot;s&quot;,&quot;t&quot;,&quot;u&quot;,&quot;v&quot;,&quot;w&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;];
+rng = new Random();
+
+def get_string(int lenght) {
+	char[] text = new char[lenght];
+	for (int i = 0; i &lt; lenght; i++){
+		text[i] = buff[rng.nextInt(26)];
+	}
+	return new String(text);
+}
+
+
+vars.put(&quot;username&quot;, get_string(10));
+vars.put(&quot;password&quot;, get_string(11));
+
+</stringProp>
               </JSR223PreProcessor>
               <hashTree/>
             </hashTree>
@@ -578,7 +596,8 @@ if (is_create != &quot;ERROR&quot;) {
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_login" enabled="true"/>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_login" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_login">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -958,9 +977,10 @@ if (is_create != &quot;ERROR&quot;) {
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_купить_путевку" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_купить_путевку"/>
         <hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_bay" enabled="true">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -1167,7 +1187,7 @@ if (is_create != &quot;ERROR&quot;) {
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/reservations.pl_sendData_1" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/reservations.pl_sendData_1">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1758,7 +1778,7 @@ if (is_create != &quot;ERROR&quot;) {
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/itinerary.pl" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/itinerary.pl">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1800,6 +1820,16 @@ if (is_create != &quot;ERROR&quot;) {
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="fail_add">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-1775697216">No flights have been reserved</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">20</intProp>
+              </ResponseAssertion>
               <hashTree/>
             </hashTree>
           </hashTree>
@@ -1865,9 +1895,10 @@ if (is_create != &quot;ERROR&quot;) {
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_удаление_поездоки" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_удаление_поездоки"/>
         <hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_dell" enabled="true">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -2293,24 +2324,18 @@ sampler.setArguments(data);
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_think" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_think"/>
         <hashTree>
-          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action">
             <intProp name="ActionProcessor.action">1</intProp>
             <intProp name="ActionProcessor.target">0</intProp>
-            <stringProp name="ActionProcessor.duration">0</stringProp>
+            <stringProp name="ActionProcessor.duration">${__Random(1000,5000,)}</stringProp>
           </TestAction>
-          <hashTree>
-            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
-              <stringProp name="ConstantTimer.delay">1000</stringProp>
-              <stringProp name="RandomTimer.range">5000</stringProp>
-            </UniformRandomTimer>
-            <hashTree/>
-          </hashTree>
+          <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_add_bay_logout"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_add_or_login_bay_logout"/>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_add_bay_logout">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_add_or_login_bay_logout">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -2320,16 +2345,48 @@ sampler.setArguments(data);
               <stringProp name="ActionProcessor.duration">${Rumo-Up}</stringProp>
             </TestAction>
             <hashTree/>
-            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_add_user" enabled="true">
-              <collectionProp name="ModuleController.node_path">
-                <stringProp name="764597751">Test Plan</stringProp>
-                <stringProp name="764597751">Test Plan</stringProp>
-                <stringProp name="-834178755">____Сценарии____</stringProp>
-                <stringProp name="-249878088">SC_add_user</stringProp>
-              </collectionProp>
-            </ModuleController>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">ran = new Random()
+vars.put(&quot;or&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp>
+            </JSR223PreProcessor>
             <hashTree/>
-            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="..wait" enabled="true">
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+              <stringProp name="IfController.condition">&quot;${or}&quot; == &quot;0&quot;</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">false</boolProp>
+            </IfController>
+            <hashTree>
+              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login">
+                <collectionProp name="ModuleController.node_path">
+                  <stringProp name="764597751">Test Plan</stringProp>
+                  <stringProp name="764597751">Test Plan</stringProp>
+                  <stringProp name="-834178755">____Сценарии____</stringProp>
+                  <stringProp name="780492986">SC_login</stringProp>
+                </collectionProp>
+              </ModuleController>
+              <hashTree/>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+              <stringProp name="IfController.condition">&quot;${or}&quot; == &quot;1&quot;</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">false</boolProp>
+            </IfController>
+            <hashTree>
+              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_add_user">
+                <collectionProp name="ModuleController.node_path">
+                  <stringProp name="764597751">Test Plan</stringProp>
+                  <stringProp name="764597751">Test Plan</stringProp>
+                  <stringProp name="-834178755">____Сценарии____</stringProp>
+                  <stringProp name="-249878088">SC_add_user</stringProp>
+                </collectionProp>
+              </ModuleController>
+              <hashTree/>
+            </hashTree>
+            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="..wait">
               <collectionProp name="ModuleController.node_path">
                 <stringProp name="764597751">Test Plan</stringProp>
                 <stringProp name="764597751">Test Plan</stringProp>
@@ -2356,7 +2413,7 @@ sampler.setArguments(data);
               </collectionProp>
             </ModuleController>
             <hashTree/>
-            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_logout">
+            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_logout" enabled="true">
               <collectionProp name="ModuleController.node_path">
                 <stringProp name="764597751">Test Plan</stringProp>
                 <stringProp name="764597751">Test Plan</stringProp>
@@ -2415,7 +2472,7 @@ sampler.setArguments(data);
         <boolProp name="exclude_checkbox_state">false</boolProp>
       </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -2452,7 +2509,7 @@ sampler.setArguments(data);
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time" enabled="true">
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -2594,7 +2651,7 @@ sampler.setArguments(data);
             </elementProp>
             <elementProp name="samplersRegex" elementType="Argument">
               <stringProp name="Argument.name">samplersRegex</stringProp>
-              <stringProp name="Argument.value">TC.*</stringProp>
+              <stringProp name="Argument.value">TC_.*</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="percentiles" elementType="Argument">
