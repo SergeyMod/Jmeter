@@ -87,6 +87,7 @@ public class Kotik {
 	
 	public void eat(int eatCount) {
 		this.satiety += eatCount;
+		System.out.println("Кот " + this.name + " поел.");
 	}
 
 	public void eat(int eatCount, String foodName) {
@@ -103,7 +104,7 @@ public class Kotik {
 			return true;
 		}
 		else {
-			System.out.println("Кот " + action);
+			System.out.println("Кот " + this.name + " " + action);
 			this.satiety -= 1;
 			return false;
 		}	
