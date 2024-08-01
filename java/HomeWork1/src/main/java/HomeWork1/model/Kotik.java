@@ -1,4 +1,4 @@
-package model;
+package HomeWork1.model;
 
 import java.util.Random;
 

@@ -1,4 +1,5 @@
-import model.Kotik;
+package HomeWork1;
+import HomeWork1.model.Kotik;
 
 
 public class Application {
