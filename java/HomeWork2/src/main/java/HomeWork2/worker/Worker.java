@@ -1,8 +1,8 @@
-package worker;
+package HomeWork2.worker;
 
-import animals.supanimal.Animal;
-import food.Food;
-import animals.doit.Voice;
+import HomeWork2.animals.supanimal.Animal;
+import HomeWork2.food.Food;
+import HomeWork2.animals.doit.Voice;
 
 public class Worker {
 
