@@ -1,8 +1,9 @@
 //Овца
-package animals;
+package HomeWork2.animals;
 
-import animals.supanimal.Herbivore;
-import animals.doit.Run;
+import HomeWork2.animals.supanimal.Herbivore;
+import HomeWork2.animals.doit.Run;
+import HomeWork2.animals.doit.Voice;
 
 public class Sheep extends Herbivore implements Run, Voice {
     public String run() {return "The sheep is running";}

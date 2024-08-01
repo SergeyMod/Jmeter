@@ -1,6 +1,6 @@
-package animals.supanimal;
+package HomeWork2.animals.supanimal;
 
-import food.Food;
+import HomeWork2.food.Food;
 
 public abstract class Animal {
 

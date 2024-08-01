@@ -1,9 +1,9 @@
 //Корова
-package animals;
+package HomeWork2.animals;
 
-import animals.supanimal.Herbivore;
-import animals.doit.Run;
-import animals.doit.Voice;
+import HomeWork2.animals.supanimal.Herbivore;
+import HomeWork2.animals.doit.Run;
+import HomeWork2.animals.doit.Voice;
 
 public class Cow extends Herbivore implements Run, Voice {
 

@@ -1,6 +1,6 @@
-package animals.supanimal;
+package HomeWork2.animals.supanimal;
 
-import food.*;
+import HomeWork2.food.*;
 
 public abstract class Carnivorous extends Animal {
 
