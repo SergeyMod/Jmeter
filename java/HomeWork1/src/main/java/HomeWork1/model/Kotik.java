@@ -1,4 +1,4 @@
-package model;
+package HomeWork1.model;
 
 import java.util.Random;
 
@@ -87,7 +87,7 @@ public class Kotik {
 	
 	public void eat(int eatCount) {
 		this.satiety += eatCount;
-		Sustem.out.println("Кот " + this.name + " поел.");
+		System.out.println("Кот " + this.name + " поел.");
 	}
 
 	public void eat(int eatCount, String foodName) {
