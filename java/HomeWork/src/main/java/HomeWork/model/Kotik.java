@@ -1,19 +1,20 @@
-package HomeWork1.model;
+package HomeWork.model;
 
 import java.util.Random;
 
 public class Kotik {
 
-	private int satiety = 10;
+	private int satiety = 30;
 	private static int count;
 	
 	private String name;
 	private int prettiness;
 	private int weight;
 	private String meow;
+	private String[] eatFood = new String[0];
 
 	public Kotik() {
-		count++;
+
 	}
 
 	public void setKotik(int prettiness, String name, int weight, String meow) {
@@ -27,6 +28,10 @@ public class Kotik {
 		setKotik(prettiness, name, weight, meow);
 	}
 
+	{
+		count++;
+	}
+
 	public static int getCount() {
 		return count;
 	}
@@ -34,6 +39,8 @@ public class Kotik {
 	public String getName() {
 		return this.name;
 	}
+
+	public String[] getEat() {return this.eatFood;}
 
 	public int getPrettiness() {
 		return this.prettiness;
@@ -52,37 +59,62 @@ public class Kotik {
 		for (int i = 1; i <= 24; i++) {
 			int temp = rnd.nextInt(5);
 			switch(temp) {
-				case 0: if (play()) {eat();}
+				case 0: if (!play()) {eat();}
 					break;
-				case 1: if (sleep()) {eat();}
+				case 1: if (!sleep()) {eat();}
 					break;
-				case 2: if (chaseMouse()) {eat();}
+				case 2: if (!chaseMouse()) {eat();}
 					break;
-				case 3: if (lay()) {eat();}
+				case 3: if (!lay()) {eat();}
 					break;
-				case 4: if (sit()) {eat();}	
+				case 4: if (!sit()) {eat();}
 			}
 		}
 	}
 
 	public boolean play() {
-		return  is_eat("играет.");		
+		boolean _is_eat = is_eat();
+		if (_is_eat) {
+			System.out.println("Кот " + this.name + " играет.");
+			this.satiety -= 1;
+		}
+		return _is_eat;
 	}
 	
 	public boolean sleep() {
-		return is_eat("спит.");
+		boolean _is_eat = is_eat();
+		if (_is_eat) {
+			System.out.println("Кот " + this.name + " спит.");
+			this.satiety -= 1;
+		}
+		return _is_eat;
 	}
 	
 	public boolean chaseMouse() {
-		return is_eat("преследует мышь.");
+		boolean _is_eat = is_eat();
+		if (_is_eat) {
+			System.out.println("Кот " + this.name + " преследует мышь.");
+			this.satiety -= 1;
+		}
+		return _is_eat;
 	}
 
 	public boolean sit() {
-		return is_eat("сидит.");
+		boolean _is_eat = is_eat();
+		if (_is_eat) {
+			System.out.println("Кот " + this.name + " сидит.");
+			this.satiety -= 1;
+		}
+		return _is_eat;
 	}
 
 	public boolean lay() {
-		return is_eat("лежит.");
+		boolean _is_eat = is_eat();
+		if (_is_eat) {
+			System.out.println("Кот " + this.name + " лежит.");
+			this.satiety -= 1;
+		}
+		return _is_eat;
 	}
 	
 	public void eat(int eatCount) {
@@ -91,22 +123,24 @@ public class Kotik {
 	}
 
 	public void eat(int eatCount, String foodName) {
+
 		eat(eatCount);
+		int num = eatFood.length;
+		String[] temp = new String[num + 1];
+        System.arraycopy(this.eatFood, 0, temp, 0, num);
+		temp[num] = foodName;
+		this.eatFood = temp;
 	}
 
 	public void eat() {
 		eat(10, "Kitekat");
 	}
-	
-	private boolean is_eat(String action) {
+
+	private boolean is_eat() {
 		if (this.satiety == 0) {
 			System.out.println("Хочу есть, покорми меня");
-			return true;
-		}
-		else {
-			System.out.println("Кот " + this.name + " " + action);
-			this.satiety -= 1;
 			return false;
-		}	
+		}
+		else return true;
 	}
 }
