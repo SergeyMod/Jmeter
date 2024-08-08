@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class Kotik {
 
-    private int satiety = 30;
     private static int count;
-
+    
+    private int satiety = 30; 
     private String name;
     private int prettiness;
     private int weight;
