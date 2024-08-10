@@ -1,15 +1,18 @@
 package HomeWork.animals.supanimal;
 
-import HomeWork.food.*;
+import HomeWork.food.Food;
+import HomeWork.food.Meat;
 
-public abstract class Herbivore extends Animal {
+public class Herbivore extends Animal {
 
+    @Override
     public void eat(Food food) {
 
         if (food instanceof Meat) {
-            System.out.println("Herbivore do not eat meat");
+            System.out.println(animal + " do not eat meat");
         } else {
-            System.out.println("Eat");
+            System.out.println(animal + " eat");
+            satiety += food.getAddSatiety();
         }
     }
 }
