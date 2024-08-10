@@ -1,12 +1,13 @@
 package HomeWork.model;
 
+import java.io.*;
 import java.util.Random;
 
 public class Kotik {
 
     private static int count;
     
-    private int satiety = 30; 
+    private int satiety = 10;
     private String name;
     private int prettiness;
     private int weight;
@@ -52,36 +53,53 @@ public class Kotik {
     }
 
     public void liveAnotherDay() {
-        Random rnd = new Random();
-        for (int i = 1; i <= 24; i++) {
-            int temp = rnd.nextInt(5);
-            switch (temp) {
-                case 0:
-                    if (!play()) {
-                        eat();
-                    }
-                    break;
-                case 1:
-                    if (!sleep()) {
-                        eat();
-                    }
-                    break;
-                case 2:
-                    if (!chaseMouse()) {
-                        eat();
-                    }
-                    break;
-                case 3:
-                    if (!lay()) {
-                        eat();
-                    }
-                    break;
-                case 4:
-                    if (!sit()) {
-                        eat();
-                    }
+        PrintStream psConsole = System.out;
+        File f = new File("text.txt");
+        try (PrintStream ps = new PrintStream(new FileOutputStream(f))){
+            System.setOut(ps);
+
+            Random rnd = new Random();
+            for (int i = 1; i <= 24; i++) {
+                int temp = rnd.nextInt(5);
+                switch (temp) {
+                    case 0:
+                        if (!play()) {
+                            eat();
+                        }
+                        break;
+                    case 1:
+                        if (!sleep()) {
+                            eat();
+                        }
+                        break;
+                    case 2:
+                        if (!chaseMouse()) {
+                            eat();
+                        }
+                        break;
+                    case 3:
+                        if (!lay()) {
+                            eat();
+                        }
+                        break;
+                    case 4:
+                        if (!sit()) {
+                            eat();
+                        }
+                }
             }
-        }
+        } catch (FileNotFoundException _) {}
+        System.setOut(psConsole);
+        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+            int count = 0;
+            String line;
+            while ((line = br.readLine()) != null && count < 24) {
+                System.out.println(line);
+                count++;
+            }
+
+        } catch (IOException _) {}
+        f.deleteOnExit();
     }
 
     public boolean play() {
