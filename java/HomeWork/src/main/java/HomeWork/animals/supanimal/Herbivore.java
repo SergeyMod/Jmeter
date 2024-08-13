@@ -3,6 +3,8 @@ package HomeWork.animals.supanimal;
 import HomeWork.food.Food;
 import HomeWork.food.Meat;
 
+import java.util.Objects;
+
 public class Herbivore extends Animal {
 
     @Override
@@ -15,4 +17,5 @@ public class Herbivore extends Animal {
             satiety += food.getAddSatiety();
         }
     }
+
 }

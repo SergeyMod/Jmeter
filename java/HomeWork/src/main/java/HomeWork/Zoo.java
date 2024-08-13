@@ -1,38 +1,39 @@
 package HomeWork;
 
 import HomeWork.animals.*;
-import HomeWork.animals.doit.Swim;
-import HomeWork.food.Grass;
-import HomeWork.food.Meat;
-import HomeWork.worker.Worker;
+import HomeWork.animals.supanimal.Carnivorous;
+import HomeWork.animals.supanimal.Herbivore;
 
 
 public class Zoo {
 
     public static void main(String[] args) {
 
-        Cow cow = new Cow();
-        Lion lion = new Lion();
-        Duck duck = new Duck();
-        Fish pike = new Fish();
-        Sheep sheep = new Sheep();
-        Tiger tiger = new Tiger();
+        Cow cow = new Cow("Вася");
+        Cow cow2 = new Cow("Буренка");
+        Lion lion = new Lion("Симон");
+        Sheep sheep = new Sheep("Шерстяная");
+        Duck duck = new Duck("Утка");
+        Fish pike = new Fish("Щука");
+        Tiger tiger = new Tiger("Шрам");
 
-        Grass grass = new Grass();
-        Meat meat = new Meat();
 
-        Worker worker = new Worker();
+        Aviary<Herbivore> aviaryHerbivore = new Aviary<>();
+        aviaryHerbivore.addAnimal(cow);
+        aviaryHerbivore.addAnimal(sheep);
+        aviaryHerbivore.addAnimal(duck);
+        aviaryHerbivore.addAnimal(cow2);
 
-        worker.feed(lion, meat);
-        worker.feed(lion, grass);
-        worker.feed(sheep, meat);
-        worker.feed(sheep, grass);
-        worker.getVoice(lion);
-        //worker.getVoice(pike);
+        System.out.println(aviaryHerbivore.getAviary());
+        aviaryHerbivore.dellAnimal(cow.getName());
+        System.out.println(aviaryHerbivore.getAviary());
+        System.out.println(aviaryHerbivore.getLink(duck.getName()));
 
-        Swim[] pond = {new Duck(), new Duck(), new Fish(), new Fish(), new Duck()};
-        for (Swim it : pond) {
-            System.out.println(it.swim());
-        }
+        Aviary<Carnivorous> aviaryCarnivorous = new Aviary<>();
+        aviaryCarnivorous.addAnimal(pike);
+        aviaryCarnivorous.addAnimal(tiger);
+        aviaryCarnivorous.addAnimal(pike);
+        aviaryCarnivorous.addAnimal(lion);
+
     }
 }
