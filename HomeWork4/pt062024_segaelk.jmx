@@ -5,11 +5,13 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_____CONFIG_____" enabled="false"/>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
@@ -38,7 +40,7 @@
           </elementProp>
           <elementProp name="Rumo-Up" elementType="Argument">
             <stringProp name="Argument.name">Rumo-Up</stringProp>
-            <stringProp name="Argument.value">3000</stringProp>
+            <stringProp name="Argument.value">6000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -58,39 +60,9 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="____Тест____" enabled="false"/>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
-        <intProp name="ThreadGroup.num_threads">10</intProp>
-        <intProp name="ThreadGroup.ramp_time">1</intProp>
-        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
-          <stringProp name="LoopController.loops">1</stringProp>
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-        </elementProp>
-      </ThreadGroup>
-      <hashTree>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller">
-          <collectionProp name="ModuleController.node_path">
-            <stringProp name="764597751">Test Plan</stringProp>
-            <stringProp name="764597751">Test Plan</stringProp>
-            <stringProp name="-834178755">____Сценарии____</stringProp>
-            <stringProp name="-192854216">SC_add_or_login_(ifLoginDell50%)bay_logout</stringProp>
-          </collectionProp>
-        </ModuleController>
-        <hashTree/>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="false">
-          <collectionProp name="ModuleController.node_path">
-            <stringProp name="764597751">Test Plan</stringProp>
-            <stringProp name="764597751">Test Plan</stringProp>
-            <stringProp name="-834178755">____Сценарии____</stringProp>
-            <stringProp name="1570563096">SC_удаление_поездоки</stringProp>
-          </collectionProp>
-        </ModuleController>
-        <hashTree/>
-      </hashTree>
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="jp@gc - STG_add_bay_logout">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">35</stringProp>
+        <stringProp name="ThreadGroup.num_threads">45</stringProp>
         <stringProp name="Threads initial delay">0</stringProp>
         <stringProp name="Start users count">10</stringProp>
         <stringProp name="Start users count burst">10</stringProp>
@@ -622,14 +594,14 @@ if (is_create != &quot;ERROR&quot;) {
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_login"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_login" enabled="true"/>
         <hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_login" enabled="true">
             <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/welcome.pl_signOff">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/welcome.pl_signOff" enabled="true">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -681,7 +653,7 @@ if (is_create != &quot;ERROR&quot;) {
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/nav.pl_home">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/nav.pl_home" enabled="true">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -743,7 +715,7 @@ if (is_create != &quot;ERROR&quot;) {
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/login.pl">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/login.pl" enabled="true">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -839,7 +811,7 @@ if (is_create != &quot;ERROR&quot;) {
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="firstName &lt;&lt;&lt; REE">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="firstName &lt;&lt;&lt; REE" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">true</stringProp>
                 <stringProp name="RegexExtractor.refname">firstName</stringProp>
                 <stringProp name="RegexExtractor.regex">firstName&amp;(\w+)</stringProp>
@@ -849,7 +821,7 @@ if (is_create != &quot;ERROR&quot;) {
                 <stringProp name="RegexExtractor.match_number">0</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="lastName &lt;&lt;&lt; REE">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="lastName &lt;&lt;&lt; REE" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">true</stringProp>
                 <stringProp name="RegexExtractor.refname">lastName</stringProp>
                 <stringProp name="RegexExtractor.regex">lastName&amp;(\w+)</stringProp>
@@ -859,7 +831,7 @@ if (is_create != &quot;ERROR&quot;) {
                 <stringProp name="RegexExtractor.match_number">0</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="address1&lt;&lt;&lt; REE">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="address1&lt;&lt;&lt; REE" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">true</stringProp>
                 <stringProp name="RegexExtractor.refname">address1</stringProp>
                 <stringProp name="RegexExtractor.regex">address1&amp;(\w+)</stringProp>
@@ -940,7 +912,7 @@ if (is_create != &quot;ERROR&quot;) {
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/login.pl_intro">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/login.pl_intro" enabled="true">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -992,7 +964,7 @@ if (is_create != &quot;ERROR&quot;) {
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="error_login">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="error_login" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="1685720944">${username}</stringProp>
                 </collectionProp>
@@ -1002,7 +974,7 @@ if (is_create != &quot;ERROR&quot;) {
                 <intProp name="Assertion.test_type">16</intProp>
               </ResponseAssertion>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="userIsLogin &lt;&lt;&lt; REE">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="userIsLogin &lt;&lt;&lt; REE" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">userIsLogin</stringProp>
                 <stringProp name="RegexExtractor.regex">Welcome, &lt;b&gt;(.+)&lt;/b&gt;</stringProp>
@@ -1017,7 +989,7 @@ if (is_create != &quot;ERROR&quot;) {
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_купить_путевку"/>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_bay">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_bay" enabled="true">
             <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
@@ -1074,7 +1046,7 @@ if (is_create != &quot;ERROR&quot;) {
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/nav.pl_menu_flights" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/nav.pl_menu_flights">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1133,7 +1105,7 @@ if (is_create != &quot;ERROR&quot;) {
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/reservations.pl_welcom" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/reservations.pl_welcom">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1225,7 +1197,7 @@ if (is_create != &quot;ERROR&quot;) {
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/reservations.pl_sendData_1" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/reservations.pl_sendData_1">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1404,7 +1376,7 @@ if (is_create != &quot;ERROR&quot;) {
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/reservations.pl_sendData_2" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/reservations.pl_sendData_2">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1521,7 +1493,7 @@ if (is_create != &quot;ERROR&quot;) {
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/reservations.pl_sendData_3" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/reservations.pl_sendData_3">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1705,7 +1677,7 @@ if (is_create != &quot;ERROR&quot;) {
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/welcome.pl_itinerary" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/welcome.pl_itinerary">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1757,7 +1729,7 @@ if (is_create != &quot;ERROR&quot;) {
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/nav.pl_menu_itinerary" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/nav.pl_menu_itinerary">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1816,7 +1788,7 @@ if (is_create != &quot;ERROR&quot;) {
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/itinerary.pl" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/itinerary.pl">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -1859,7 +1831,7 @@ if (is_create != &quot;ERROR&quot;) {
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="fail_add" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="fail_add">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="-1775697216">No flights have been reserved</stringProp>
                 </collectionProp>
@@ -1933,14 +1905,14 @@ if (is_create != &quot;ERROR&quot;) {
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_удаление_поездоки"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_удаление_поездоки" enabled="true"/>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_dell">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_dell" enabled="true">
             <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/welcome.pl">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/welcome.pl" enabled="true">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -2051,7 +2023,7 @@ if (is_create != &quot;ERROR&quot;) {
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/itinerary.pl">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/cgi-bin/itinerary.pl" enabled="true">
               <stringProp name="HTTPSampler.domain">${host}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -2094,7 +2066,7 @@ if (is_create != &quot;ERROR&quot;) {
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="flightID&lt;&lt;&lt; REE">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="flightID&lt;&lt;&lt; REE" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">flightID</stringProp>
                 <stringProp name="RegexExtractor.regex">name=&quot;([a-zA-z]+)&quot; value=&quot;(.+)&quot;</stringProp>
@@ -2115,13 +2087,13 @@ if (is_create != &quot;ERROR&quot;) {
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
               <stringProp name="IfController.condition">&quot;${flightID}&quot; == &quot;flightID_ERROR&quot;</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">false</boolProp>
             </IfController>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/itinerary.pl">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&gt;_/cgi-bin/itinerary.pl" enabled="true">
                 <stringProp name="HTTPSampler.domain">${host}</stringProp>
                 <stringProp name="HTTPSampler.port">${port}</stringProp>
                 <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
@@ -2136,7 +2108,7 @@ if (is_create != &quot;ERROR&quot;) {
                 </elementProp>
               </HTTPSamplerProxy>
               <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                   <collectionProp name="HeaderManager.headers">
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
@@ -2177,7 +2149,7 @@ if (is_create != &quot;ERROR&quot;) {
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+                <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
                   <stringProp name="scriptLanguage">groovy</stringProp>
                   <stringProp name="parameters"></stringProp>
                   <stringProp name="filename"></stringProp>
@@ -2228,7 +2200,7 @@ sampler.setArguments(data);
 </stringProp>
                 </JSR223PreProcessor>
                 <hashTree/>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
                   <collectionProp name="Asserion.test_strings">
                     <stringProp name="-1775697216">No flights have been reserved</stringProp>
                   </collectionProp>
@@ -2295,7 +2267,7 @@ sampler.setArguments(data);
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
                 <stringProp name="scriptLanguage">groovy</stringProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -2350,9 +2322,9 @@ sampler.setArguments(data);
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_think" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_think"/>
         <hashTree>
-          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action">
             <intProp name="ActionProcessor.action">1</intProp>
             <intProp name="ActionProcessor.target">0</intProp>
             <stringProp name="ActionProcessor.duration">${__Random(1000,5000,)}</stringProp>
@@ -2361,7 +2333,7 @@ sampler.setArguments(data);
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="SC_add_or_login_(ifLoginDell50%)bay_logout"/>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_add_or_login_(ifLoginDell50%)bay_logout">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC_add_or_login_(ifLoginDell50%)bay_logout" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -2371,7 +2343,7 @@ sampler.setArguments(data);
               <stringProp name="ActionProcessor.duration">${Rumo-Up}</stringProp>
             </TestAction>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -2380,13 +2352,13 @@ sampler.setArguments(data);
 vars.put(&quot;or&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp>
             </JSR223PreProcessor>
             <hashTree/>
-            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
               <stringProp name="IfController.condition">&quot;${or}&quot; == &quot;0&quot;</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">false</boolProp>
             </IfController>
             <hashTree>
-              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login">
+              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_login" enabled="true">
                 <collectionProp name="ModuleController.node_path">
                   <stringProp name="764597751">Test Plan</stringProp>
                   <stringProp name="764597751">Test Plan</stringProp>
@@ -2395,7 +2367,7 @@ vars.put(&quot;or&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp>
                 </collectionProp>
               </ModuleController>
               <hashTree/>
-              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
                 <stringProp name="scriptLanguage">groovy</stringProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -2404,13 +2376,13 @@ vars.put(&quot;or&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp>
 vars.put(&quot;or2&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp>
               </JSR223PreProcessor>
               <hashTree/>
-              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
                 <stringProp name="IfController.condition">&quot;${or2}&quot; == &quot;0&quot; &amp;&amp; &quot;${userIsLogin}&quot; == &quot;${username}&quot;</stringProp>
                 <boolProp name="IfController.evaluateAll">false</boolProp>
                 <boolProp name="IfController.useExpression">false</boolProp>
               </IfController>
               <hashTree>
-                <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="..wait">
+                <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="..wait" enabled="true">
                   <collectionProp name="ModuleController.node_path">
                     <stringProp name="764597751">Test Plan</stringProp>
                     <stringProp name="764597751">Test Plan</stringProp>
@@ -2419,7 +2391,7 @@ vars.put(&quot;or2&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp
                   </collectionProp>
                 </ModuleController>
                 <hashTree/>
-                <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_dell">
+                <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_dell" enabled="true">
                   <collectionProp name="ModuleController.node_path">
                     <stringProp name="764597751">Test Plan</stringProp>
                     <stringProp name="764597751">Test Plan</stringProp>
@@ -2429,7 +2401,7 @@ vars.put(&quot;or2&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp
                 </ModuleController>
                 <hashTree/>
               </hashTree>
-              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="..wait">
+              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="..wait" enabled="true">
                 <collectionProp name="ModuleController.node_path">
                   <stringProp name="764597751">Test Plan</stringProp>
                   <stringProp name="764597751">Test Plan</stringProp>
@@ -2438,7 +2410,7 @@ vars.put(&quot;or2&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp
                 </collectionProp>
               </ModuleController>
               <hashTree/>
-              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_купить_путевку">
+              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_купить_путевку" enabled="true">
                 <collectionProp name="ModuleController.node_path">
                   <stringProp name="764597751">Test Plan</stringProp>
                   <stringProp name="764597751">Test Plan</stringProp>
@@ -2448,13 +2420,13 @@ vars.put(&quot;or2&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp
               </ModuleController>
               <hashTree/>
             </hashTree>
-            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
               <stringProp name="IfController.condition">&quot;${or}&quot; == &quot;1&quot;</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">false</boolProp>
             </IfController>
             <hashTree>
-              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_add_user">
+              <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_add_user" enabled="true">
                 <collectionProp name="ModuleController.node_path">
                   <stringProp name="764597751">Test Plan</stringProp>
                   <stringProp name="764597751">Test Plan</stringProp>
@@ -2505,7 +2477,7 @@ vars.put(&quot;or2&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="____Отладка____" enabled="false"/>
       <hashTree/>
-      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second">
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -2550,7 +2522,7 @@ vars.put(&quot;or2&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp
         <boolProp name="exclude_checkbox_state">false</boolProp>
       </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -2692,14 +2664,14 @@ vars.put(&quot;or2&quot;, new String(ran.nextInt(2) + &quot;&quot;))</stringProp
         <stringProp name="ProxyControlGui.content_type_exclude"></stringProp>
       </ProxyControl>
       <hashTree/>
-      <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor">
+      <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="false">
         <boolProp name="displayJMeterProperties">false</boolProp>
         <boolProp name="displayJMeterVariables">true</boolProp>
         <boolProp name="displaySamplerProperties">true</boolProp>
         <boolProp name="displaySystemProperties">false</boolProp>
       </DebugPostProcessor>
       <hashTree/>
-      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener">
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="true">
         <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
           <collectionProp name="Arguments.arguments">
             <elementProp name="influxdbMetricsSender" elementType="Argument">
