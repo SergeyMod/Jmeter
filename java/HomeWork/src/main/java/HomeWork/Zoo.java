@@ -27,7 +27,7 @@ public class Zoo {
         System.out.println(aviaryHerbivore.getAviary());
         aviaryHerbivore.dellAnimal(cow.getName());
         System.out.println(aviaryHerbivore.getAviary());
-        System.out.println(aviaryHerbivore.getLink(duck.getName()));
+        System.out.println(aviaryHerbivore.getLink(duck.getName()).getClass());
 
         Aviary<Carnivorous> aviaryCarnivorous = new Aviary<>();
         aviaryCarnivorous.addAnimal(pike);

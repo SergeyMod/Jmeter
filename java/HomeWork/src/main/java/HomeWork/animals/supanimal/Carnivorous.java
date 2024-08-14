@@ -1,5 +1,6 @@
 package HomeWork.animals.supanimal;
 
+import HomeWork.WrongFoodException;
 import HomeWork.food.Food;
 import HomeWork.food.Grass;
 
@@ -8,12 +9,12 @@ import java.util.Objects;
 public class Carnivorous extends Animal {
 
     @Override
-    public void eat(Food food) {
+    public void eat(Food food) throws WrongFoodException {
 
         if (food instanceof Grass) {
-            System.out.println( animal + " do not eat grass");
+            throw new WrongFoodException(this.animal + " do not eat meat");
         } else {
-            System.out.println(animal + " eat");
+            System.out.println(this.animal + " eat");
             satiety += food.getAddSatiety();
         }
     }

@@ -1,6 +1,7 @@
 package HomeWork.animals.supanimal;
 
 import HomeWork.Size;
+import HomeWork.WrongFoodException;
 import HomeWork.food.Food;
 
 import java.util.Objects;
@@ -35,7 +36,7 @@ public abstract class Animal {
 
     public Size getSize() {return this.size;}
 
-    public abstract void eat(Food food);
+    public abstract void eat(Food food) throws WrongFoodException;
 
     public int getSatiety() {
         return satiety;

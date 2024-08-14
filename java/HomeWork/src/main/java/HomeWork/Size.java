@@ -1,7 +1,8 @@
 package HomeWork;
 
 public enum Size {
-    HIGH(3),
+    HIGH(4),
+    MEDIUMHIGHT(3),
     MEDIUM(2),
     LOW(1);
 
